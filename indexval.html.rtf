@@ -1,0 +1,179 @@
+{\rtf1\ansi\ansicpg1253\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="el">\
+<head>\
+  <meta charset="UTF-8">\
+  <title>Valentine \uc0\u55357 \u56472 </title>\
+  <style>\
+    body \{\
+      font-family: Arial, sans-serif;\
+      background: #ffe6eb;\
+      overflow: hidden;\
+      margin: 0;\
+      height: 100vh;\
+      display: flex;\
+      justify-content: center;\
+      align-items: center;\
+    \}\
+\
+    .box \{\
+      background: white;\
+      padding: 40px;\
+      border-radius: 20px;\
+      text-align: center;\
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);\
+      z-index: 2;\
+      position: relative;\
+    \}\
+\
+    h1 \{\
+      margin-bottom: 30px;\
+    \}\
+\
+    button \{\
+      font-size: 18px;\
+      padding: 12px 30px;\
+      border: none;\
+      border-radius: 10px;\
+      cursor: pointer;\
+    \}\
+\
+    #yes \{\
+      background: #ff4d6d;\
+      color: white;\
+      margin-right: 20px;\
+    \}\
+\
+    #no \{\
+      background: #ccc;\
+      position: absolute;\
+    \}\
+\
+    .heart \{\
+      position: absolute;\
+      top: -10px;\
+      font-size: 20px;\
+      animation: fall linear infinite;\
+    \}\
+\
+    @keyframes fall \{\
+      to \{\
+        transform: translateY(110vh);\
+      \}\
+    \}\
+\
+    .emoji \{\
+      position: absolute;\
+      font-size: 30px;\
+      animation: explode 1.2s ease-out forwards;\
+    \}\
+\
+    @keyframes explode \{\
+      0% \{\
+        transform: scale(0.5);\
+        opacity: 1;\
+      \}\
+      100% \{\
+        transform: translate(\
+          calc(-100px + 200px * random()),\
+          calc(-100px + 200px * random())\
+        ) scale(1.5);\
+        opacity: 0;\
+      \}\
+    \}\
+\
+    img \{\
+      max-width: 300px;\
+      border-radius: 20px;\
+      margin-top: 20px;\
+    \}\
+  </style>\
+</head>\
+<body>\
+\
+  <div class="box">\
+    <h1>\uc0\u914 \u945 \u955 \u941 \u961 \u953 \u945  \u55357 \u56469 <br>Will you be my Valentine?</h1>\
+    <button id="yes" onclick="yesClicked()">Yes</button>\
+    <button id="no">No</button>\
+  </div>\
+\
+  <script>\
+    const noBtn = document.getElementById("no");\
+\
+    noBtn.addEventListener("mouseover", () => \{\
+      const x = Math.random() * (window.innerWidth - 100);\
+      const y = Math.random() * (window.innerHeight - 100);\
+      noBtn.style.left = x + "px";\
+      noBtn.style.top = y + "px";\
+    \});\
+\
+    function yesClicked() \{\
+      emojiExplosion();\
+\
+<img src="cat.jpg" alt="Our cat \uc0\u55357 \u56369 ">\
+<p style="\
+  margin-top:10px;\
+  font-size:18px;\
+  font-style:italic;\
+">\
+  Approved by the cat \uc0\u55357 \u56382 \
+</p>\
+\
+      setTimeout(() => \{\
+        document.body.innerHTML = `\
+          <div style="\
+            display:flex;\
+            flex-direction:column;\
+            justify-content:center;\
+            align-items:center;\
+            height:100vh;\
+            background:#ffe6eb;\
+            font-family:Arial;\
+            text-align:center;\
+          ">\
+            <h1>Yaaay \uc0\u914 \u945 \u955 \u941 \u961 \u953 \u945 ! \u55357 \u56470 </h1>\
+            <p style="font-size:20px;">There was never a no anyway \uc0\u55357 \u56844 </p>\
+\
+            <!-- \uc0\u917 \u916 \u937  \u924 \u928 \u913 \u921 \u925 \u927 \u933 \u925  \u927 \u921  \u917 \u921 \u922 \u927 \u925 \u917 \u931  -->\
+            <img src="there-was-never-a-no.png" alt="There was never a no">\
+          </div>\
+        `;\
+      \}, 1200);\
+    \}\
+\
+    function emojiExplosion() \{\
+      const emojis = ["\uc0\u55357 \u56485 ","\u55356 \u57225 ","\u55357 \u56470 ","\u55357 \u56845 ","\u55358 \u56688 ","\u10024 "];\
+      for (let i = 0; i < 30; i++) \{\
+        const emoji = document.createElement("div");\
+        emoji.classList.add("emoji");\
+        emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];\
+        emoji.style.left = window.innerWidth / 2 + "px";\
+        emoji.style.top = window.innerHeight / 2 + "px";\
+        document.body.appendChild(emoji);\
+\
+        setTimeout(() => emoji.remove(), 1200);\
+      \}\
+    \}\
+\
+    function createHeart() \{\
+      const heart = document.createElement("div");\
+      heart.classList.add("heart");\
+      heart.innerHTML = "\uc0\u10084 \u65039 ";\
+      heart.style.left = Math.random() * 100 + "vw";\
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";\
+      document.body.appendChild(heart);\
+\
+      setTimeout(() => heart.remove(), 5000);\
+    \}\
+\
+    setInterval(createHeart, 300);\
+  </script>\
+\
+</body>\
+</html>}
